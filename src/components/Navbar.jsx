@@ -7,21 +7,40 @@ import { quickLinks } from '../data/siteData';
 // ── Active section tracker ───────────────────────────────────────
 function useActiveSection(ids) {
   const [active, setActive] = useState('#hero');
+  const sectionIds = ids.join(',');
 
   useEffect(() => {
-    const observers = ids.map((id) => {
-      const el = document.getElementById(id.replace('#', ''));
-      if (!el) return null;
-      const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActive(id); },
-        { threshold: 0.3, rootMargin: '-64px 0px -40% 0px' }
-      );
-      obs.observe(el);
-      return obs;
-    });
-    return () => observers.forEach((o) => o?.disconnect());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    const sectionIdsList = sectionIds.split(',');
+    let frame = 0;
+    const updateActiveSection = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        const headerRow = document.querySelector('header')?.firstElementChild;
+        const activationLine = (headerRow?.getBoundingClientRect().bottom ?? 64) + 16;
+        let current = sectionIdsList[0] || '#hero';
+
+        sectionIdsList.forEach((id) => {
+          const section = document.getElementById(id.slice(1));
+          if (section && section.getBoundingClientRect().top <= activationLine) {
+            current = id;
+          }
+        });
+
+        setActive((previous) => previous === current ? previous : current);
+      });
+    };
+
+    updateActiveSection();
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
+    window.addEventListener('resize', updateActiveSection);
+
+    return () => {
+      window.removeEventListener('scroll', updateActiveSection);
+      window.removeEventListener('resize', updateActiveSection);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, [sectionIds]);
 
   return active;
 }
