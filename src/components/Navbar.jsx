@@ -12,29 +12,32 @@ function useActiveSection(ids) {
   useEffect(() => {
     const sectionIdsList = sectionIds.split(',');
     let frame = 0;
+    const findActiveSection = () => {
+      const headerRow = document.querySelector('header')?.firstElementChild;
+      const activationLine = (headerRow?.getBoundingClientRect().bottom ?? 64) + 16;
+      let current = sectionIdsList[0] || '#hero';
+
+      sectionIdsList.forEach((id) => {
+        const section = document.getElementById(id.slice(1));
+        if (section && section.getBoundingClientRect().top <= activationLine) {
+          current = id;
+        }
+      });
+
+      return current;
+    };
+
     const updateActiveSection = () => {
       if (frame) return;
       frame = window.requestAnimationFrame(() => {
         frame = 0;
-        const headerRow = document.querySelector('header')?.firstElementChild;
-        const activationLine = (headerRow?.getBoundingClientRect().bottom ?? 64) + 16;
-        let current = sectionIdsList[0] || '#hero';
-
-        sectionIdsList.forEach((id) => {
-          const section = document.getElementById(id.slice(1));
-          if (section && section.getBoundingClientRect().top <= activationLine) {
-            current = id;
-          }
-        });
-
-        setActive((previous) => previous === current ? previous : current);
+        setActive(findActiveSection());
       });
     };
 
-    updateActiveSection();
+    setActive(findActiveSection());
     window.addEventListener('scroll', updateActiveSection, { passive: true });
     window.addEventListener('resize', updateActiveSection);
-
     return () => {
       window.removeEventListener('scroll', updateActiveSection);
       window.removeEventListener('resize', updateActiveSection);
@@ -42,7 +45,22 @@ function useActiveSection(ids) {
     };
   }, [sectionIds]);
 
-  return active;
+  const refreshActiveSection = useCallback(() => {
+    const headerRow = document.querySelector('header')?.firstElementChild;
+    const activationLine = (headerRow?.getBoundingClientRect().bottom ?? 64) + 16;
+    let current = ids[0] || '#hero';
+
+    ids.forEach((id) => {
+      const section = document.getElementById(id.slice(1));
+      if (section && section.getBoundingClientRect().top <= activationLine) {
+        current = id;
+      }
+    });
+
+    setActive(current);
+  }, [sectionIds]);
+
+  return [active, refreshActiveSection];
 }
 
 // ── Language toggle button ───────────────────────────────────────
@@ -86,7 +104,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const links = quickLinks[lang];
-  const active = useActiveSection(links.map((l) => l.href));
+  const [active, refreshActiveSection] = useActiveSection(links.map((l) => l.href));
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -211,7 +229,10 @@ export default function Navbar() {
 
           {/* Hamburger */}
           <button
-            onClick={() => setMobileOpen((v) => !v)}
+            onClick={() => {
+              refreshActiveSection();
+              setMobileOpen((v) => !v);
+            }}
             className={`md:hidden p-2 rounded-xl transition-all duration-200 ${
               scrolled
                 ? 'text-primary-dark hover:bg-primary/10'
