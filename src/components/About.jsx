@@ -39,7 +39,7 @@ export default function About() {
         <motion.div {...fadeUp(0.15)}>
           {/* Tab switcher */}
           <div
-            className="inline-flex bg-white rounded-2xl p-1.5 shadow-md border border-gray-100 mb-8 mx-auto flex"
+            className="inline-flex bg-white rounded-2xl p-1.5 shadow-md border border-gray-100 mb-8 mx-auto"
             role="tablist"
             aria-label={lang === 'id' ? 'Visi dan Misi' : 'Vision and Mission'}
             style={{ display: 'flex', width: 'fit-content', margin: '0 auto 2rem' }}

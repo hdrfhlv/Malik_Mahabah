@@ -61,13 +61,6 @@ export const translations = {
       headingAccent: 'Instalasi Kami',
       sub: 'Dipercaya oleh puluhan fasilitas kesehatan, kami mengerjakan setiap proyek instalasi dengan presisi, standar tinggi, dan tanggung jawab penuh.',
     },
-    // Process
-    process: {
-      badge: 'Tahapan Layanan',
-      heading1: 'Dari Konsultasi hingga',
-      headingAccent: 'Serah Terima',
-      sub: 'Setiap tahapan dirancang agar berjalan efisien, terukur, dan transparan.',
-    },
     // FAQ
     faq: {
       badge: 'Pusat Informasi',
@@ -195,12 +188,6 @@ export const translations = {
       heading1: 'What Sets Our',
       headingAccent: 'Installations Apart',
       sub: 'Trusted by dozens of healthcare facilities, we carry out every installation project with precision, high standards, and full accountability.',
-    },
-    process: {
-      badge: 'Our Process',
-      heading1: 'From Consultation to',
-      headingAccent: 'Project Handover',
-      sub: 'Every stage is designed to ensure an efficient, well-managed, and transparent process.',
     },
     faq: {
       badge: 'Information Center',

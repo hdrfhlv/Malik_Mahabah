@@ -5,7 +5,7 @@
 // ============================================================
 
 export const company = {
-  name: "PT Malik Mahabbah Manunggal",
+  name: "PT Malik Mahabah Manunggal",
   shortName: "Malik Gas Medis",
   tagline: {
     id: "Instalasi Gas Medis Terpercaya untuk Fasilitas Kesehatan Indonesia",
@@ -33,8 +33,8 @@ export const company = {
 
 export const about = {
   description: {
-    id: "PT Malik Mahabah Manunggal merupakan perusahaan yang bergerak di bidang instalasi gas medis, yang berfokus pada penyediaan layanan instalasi dan sistem perpipaan gas medis untuk mendukung kebutuhan fasilitas pelayanan kesehatan. Sistem gas medis memiliki peranan penting dalam menunjang operasional rumah sakit, klinik, dan fasilitas kesehatan lainnya, terutama dalam penyediaan gas medis yang aman, efisien, dan sesuai dengan kebutuhan pelayanan.",
-    en: "PT Malik Mahabbah Manunggal is a company specializing in medical gas installation, focusing on providing installation services and medical gas piping systems to support the needs of healthcare facilities. Medical gas systems play a vital role in supporting the operations of hospitals, clinics, and other healthcare facilities, particularly in ensuring a safe, efficient, and reliable supply of medical gases that meets healthcare service requirements.",
+    id: "PT Malik Mahabah Manunggal merupakan perusahaan yang bergerak di bidang instalasi gas medis, yang berfokus pada penyediaan layanan instalasi dan sistem perpipaan gas medis untuk mendukung kebutuhan fasilitas pelayanan kesehatan. Sistem gas medis memiliki peranan penting dalam menunjang operasional rumah sakit, klinik, dan fasilitas kesehatan lainnya, terutama dalam penyediaan gas medis yang aman, efisien, dan sesuai dengan kebutuhan pelayanan. Dalam menjalankan kegiatannya, PT Malik Mahabah Manunggal berkomitmen untuk memberikan layanan yang mengutamakan kualitas pekerjaan, ketepatan pelaksanaan, serta penerapan standar keselamatan dalam setiap proses instalasi. Perusahaan juga berupaya memberikan solusi yang sesuai dengan kebutuhan pelanggan melalui perencanaan, pemasangan, dan pemeliharaan sistem gas medis. Dengan mengedepankan profesionalisme dan tanggung jawab, PT Malik Mahabah Manunggal terus berupaya menjadi mitra yang dapat diandalkan dalam mendukung pembangunan dan pengembangan infrastruktur fasilitas kesehatan di Indonesia.",
+    en: "PT Malik Mahabah Manunggal is a company engaged in the field of medical gas installation, focusing on providing installation services and medical gas piping systems to support the needs of healthcare facilities. Medical gas systems play a crucial role in supporting the operations of hospitals, clinics, and other healthcare facilities, particularly in providing safe, efficient, and appropriate medical gases for healthcare services. In carrying out its activities, PT Malik Mahabah Manunggal is committed to delivering services that prioritize work quality, timely execution, and the application of safety standards in every installation process. The company also strives to provide solutions that meet customer needs through planning, installation, and maintenance of medical gas systems. By emphasizing professionalism and responsibility, PT Malik Mahabah Manunggal continues to strive to be a reliable partner in supporting the development and enhancement of healthcare facility infrastructure in Indonesia.",
   },
   vision: {
     id: "Menjadi perusahaan instalasi gas medis yang profesional, terpercaya, dan berkualitas dalam mendukung kebutuhan infrastruktur fasilitas kesehatan di Indonesia dengan mengutamakan keselamatan, ketepatan, dan kepuasan pelanggan.",
@@ -222,8 +222,8 @@ export const services = [
       en: "Testing & Instalation",
     },
     description: {
-      id: "Perencanaan, pemasangan, dan komisioning sistem gas medis terpadu — dari manifold, jaringan pipa, hingga outlet di setiap titik layanan.",
-      en: "Planning, installation, and commissioning of integrated medical gas systems — from manifolds, pipe networks, to outlets at every service point.",
+      id: "Melakukan pemasangan seluruh komponen sistem gas medis sesuai gambar desain dan memastikan sistem berfungsi dengan aman, andal, serta bebas kebocoran sebelum dioperasikan.",
+      en: "Installation of all medical gas system components per design drawings, ensuring the system operates safely, reliably, and leak-free before commissioning.",
     },
   },
   {
@@ -234,8 +234,8 @@ export const services = [
       en: "System Design",
     },
     description: {
-      id: "Pemasangan dan uji tekanan sistem perpipaan gas medis sesuai standar HTM 02-01 dan NFPA 99 untuk rumah sakit dan klinik.",
-      en: "Installation and pressure testing of medical gas piping systems per HTM 02-01 and NFPA 99 standards for hospitals and clinics.",
+      id: "Menstransformasikan hasil survey lapangan menjadi dokumen teknis, gambar kerja, dan kalkulasi sistem yang presisi.",
+      en: "Transforming field survey results into technical documents, working drawings, and precise system calculations.",
     },
   },
   {
@@ -269,8 +269,8 @@ export const advantages = [
       en: "Certified Standards & Safety",
     },
     description: {
-      id: "Setiap instalasi dikerjakan sesuai standar teknis internasional dan regulasi Kemenkes RI — tidak ada kompromi soal keselamatan.",
-      en: "Every installation is carried out per international technical standards and Ministry of Health RI regulations — no compromise on safety.",
+      id: "Setiap instalasi dikerjakan sesuai standar teknis internasional dan regulasi Kemenkes RI tidak ada kompromi soal keselamatan.",
+      en: "Every installation is carried out per international technical standards and Ministry of Health RI regulations no compromise on safety.",
     },
   },
   {
@@ -309,59 +309,12 @@ export const advantages = [
     icon: "MapPin",
     title: { id: "Jangkauan Proyek Luas", en: "Wide Project Coverage" },
     description: {
-      id: "Telah mengerjakan proyek instalasi gas medis di berbagai fasilitas kesehatan di [AREA LAYANAN].",
-      en: "We have completed medical gas installation projects at various healthcare facilities across [SERVICE AREA].",
+      id: "Telah mengerjakan proyek instalasi gas medis di berbagai fasilitas kesehatan di Seluruh Indonesia.",
+      en: "We have completed medical gas installation projects at various healthcare facilities across Indonesia.",
     },
   },
 ];
 
-export const processSteps = [
-  {
-    step: 1,
-    title: { id: "Konsultasi & Permintaan", en: "Consultation & Request" },
-    description: {
-      id: "Hubungi tim kami via telepon, email, atau form online. Kami akan menganalisis kebutuhan fasilitas Anda.",
-      en: "Contact our team via phone, email, or online form. We will analyze your facility's needs.",
-    },
-    icon: "Phone",
-  },
-  {
-    step: 2,
-    title: { id: "Penawaran & Kontrak", en: "Proposal & Contract" },
-    description: {
-      id: "Kami menyiapkan proposal teknis dan penawaran harga transparan, dilanjutkan penandatanganan perjanjian kerja sama.",
-      en: "We prepare a technical proposal and transparent pricing, followed by signing a cooperation agreement.",
-    },
-    icon: "FileText",
-  },
-  {
-    step: 3,
-    title: { id: "Persiapan & Produksi", en: "Preparation & Production" },
-    description: {
-      id: "Pengisian dan pengemasan gas medis dilakukan dengan standar GMP, disertai pengujian dan penerbitan CoA.",
-      en: "Medical gas filling and packaging is carried out to GMP standards, with testing and CoA issuance.",
-    },
-    icon: "Settings",
-  },
-  {
-    step: 4,
-    title: { id: "Pengiriman & Instalasi", en: "Delivery & Installation" },
-    description: {
-      id: "Armada khusus kami mengantarkan produk ke lokasi Anda, lengkap dengan dokumen pengiriman resmi.",
-      en: "Our specialized fleet delivers the product to your location, complete with official delivery documents.",
-    },
-    icon: "Truck",
-  },
-  {
-    step: 5,
-    title: { id: "Purna Jual & Monitoring", en: "After-Sales & Monitoring" },
-    description: {
-      id: "Tim kami melakukan follow-up berkala, inspeksi, dan dukungan teknis pasca pemasangan.",
-      en: "Our team conducts periodic follow-ups, inspections, and post-installation technical support.",
-    },
-    icon: "RefreshCw",
-  },
-];
 
 export const faqs = [
   {

@@ -5,7 +5,7 @@ import About from './components/About';
 import Products from './components/Products';
 import Services from './components/Services';
 import Advantages from './components/Advantages';
-import Process from './components/Process';
+import Specialities from './components/Specialities';
 import Gallery from './components/Gallery';
 import Clients from './components/Clients';
 import FAQ from './components/FAQ';
@@ -93,7 +93,9 @@ export default function App() {
 
         <WaveDivider topColor="#0A5BD3" bottomColor="#F4F8FF" />
 
-        <Process />
+        <Specialities />
+
+        <WaveDivider topColor="#F4F8FF" bottomColor="#FFFFFF" />
 
         <Gallery />
 
