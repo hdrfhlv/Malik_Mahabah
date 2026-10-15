@@ -88,7 +88,9 @@ export default function Navbar() {
       window.history.pushState(null, '', href);
     }
     window.requestAnimationFrame(() => {
-      document.getElementById(href.slice(1))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.requestAnimationFrame(() => {
+        document.getElementById(href.slice(1))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     });
   }, []);
 
