@@ -156,8 +156,7 @@ export const translations = {
       cta: 'Contact Us',
     },
     hero: {
-      headline1: 'Precision in Every',
-      headlineAccent: 'Connection,',
+      headline1: 'Precision in Every Connection',
       headline2: 'Safety in Every Breath.',
       cta1: 'Schedule a Consultation',
       cta2: 'Explore Products',
