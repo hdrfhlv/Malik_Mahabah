@@ -1,0 +1,44 @@
+d:\Malik Mahabbah\
+├── src/
+│   ├── assets/
+│   │   ├── gallery/                         ← Foto dokumentasi proyek (15 foto)
+│   │   ├── products/                        ← Foto produk gas medis (9 foto)
+│   │   ├── Daftar Populasi.xlsx              ← Sumber daftar klien
+│   │   └── logo-removebg-preview.png
+│   ├── components/
+│   │   ├── About.jsx
+│   │   ├── Advantages.jsx
+│   │   ├── Clients.jsx                       ← Section klien
+│   │   ├── Contact.jsx
+│   │   ├── FAQ.jsx
+│   │   ├── FloatingButtons.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Gallery.jsx
+│   │   ├── Hero.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── ParticlesBackground.jsx
+│   │   ├── Process.jsx
+│   │   ├── Products.jsx
+│   │   └── Services.jsx
+│   ├── context/
+│   │   └── LanguageContext.jsx                ← Teks UI bahasa Indonesia dan Inggris
+│   ├── data/
+│   │   ├── clients.js                         ← Data 35 rumah sakit/klinik dan lab/farmasi
+│   │   ├── productCatalog.js                  ← Data katalog produk dan gambar
+│   │   └── siteData.js                        ← Data perusahaan, layanan, galeri, navigasi, dll.
+│   ├── hooks/
+│   │   └── useScrollReveal.js
+│   ├── App.jsx                                ← Susunan section halaman
+│   ├── index.css
+│   └── main.jsx
+├── index.html
+├── package.json
+├── package-lock.json
+├── postcss.config.js
+├── tailwind.config.js
+├── vite.config.js
+└── structure.txt
+
+Section pada halaman:
+Hero → Tentang Kami → Produk → Layanan → Keunggulan → Proses → Galeri
+→ Klien → FAQ → Kontak
