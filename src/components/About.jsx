@@ -30,7 +30,7 @@ export default function About() {
             {at.heading1}{' '}
             <span className="text-gradient">{at.headingAccent}</span>
           </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto font-body text-base leading-relaxed">
+          <p className="text-gray-500 max-w-2xl mx-auto font-body text-base leading-relaxed text-justify">
             {about.description[lang]}
           </p>
         </motion.div>
@@ -81,7 +81,7 @@ export default function About() {
                 </div>
                 <div>
                   <h3 className="font-heading font-bold text-xl mb-4">{at.visionLabel}</h3>
-                  <p className="font-body text-white/85 leading-relaxed text-base">
+                  <p className="font-body text-white/85 leading-relaxed text-base text-justify">
                     {about.vision[lang]}
                   </p>
                 </div>
@@ -109,7 +109,7 @@ export default function About() {
                     <span className="shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold font-heading flex items-center justify-center mt-0.5">
                       {i + 1}
                     </span>
-                    <span className="text-gray-600 font-body text-sm leading-relaxed">{point}</span>
+                    <span className="text-gray-600 font-body text-sm leading-relaxed text-justify">{point}</span>
                   </li>
                 ))}
               </ul>

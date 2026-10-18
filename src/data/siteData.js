@@ -11,10 +11,6 @@ export const company = {
     id: "Instalasi Gas Medis Terpercaya untuk Fasilitas Kesehatan Indonesia",
     en: "Trusted Medical Gas Instalation for Indonesia's Healthcare Facilities",
   },
-  subTagline: {
-    id: "Kami mengerjakan instalasi sistem gas medis berstandar tinggi, tepat waktu, dengan dukungan teknis penuh sehingga fasilitas kesehatan Anda beroperasi dengan aman.",
-    en: "We deliver high-standard medical gas system installations, on schedule, with full technical support so your healthcare facility runs safely.",
-  },
   phone: "0812-7371-2104",
   phoneWA: "628127371210",
   email: "malikmahabahmanunggal@gmail.com",
@@ -385,7 +381,7 @@ export const quickLinks = {
     { label: "Tentang Kami", href: "#about" },
     { label: "Produk", href: "#products" },
     { label: "Layanan", href: "#services" },
-    { label: "Galeri", href: "#gallery" },
+    { label: "Proyek", href: "#projects" },
     { label: "Klien", href: "#clients" },
     { label: "Kontak", href: "#contact" },
   ],
@@ -394,119 +390,8 @@ export const quickLinks = {
     { label: "About Us", href: "#about" },
     { label: "Products", href: "#products" },
     { label: "Services", href: "#services" },
-    { label: "Gallery", href: "#gallery" },
+    { label: "Projects", href: "#projects" },
     { label: "Clients", href: "#clients" },
     { label: "Contact", href: "#contact" },
   ],
 };
-
-// ── Gallery foto pengerjaan ──────────────────────────────────────
-// Ganti caption dengan keterangan foto yang sesuai
-import imgD from "../assets/gallery/d.jpeg";
-import imgF from "../assets/gallery/f.jpeg";
-import imgG from "../assets/gallery/g.jpeg";
-import imgH from "../assets/gallery/h.jpeg";
-import imgI from "../assets/gallery/i.jpeg";
-import imgK from "../assets/gallery/k.jpeg";
-import imgL from "../assets/gallery/l.jpeg";
-import imgM from "../assets/gallery/m.jpeg";
-import imgN from "../assets/gallery/n.jpeg";
-import imgO from "../assets/gallery/o.jpeg";
-import imgP from "../assets/gallery/p.jpeg";
-import imgQ from "../assets/gallery/q.jpeg";
-import imgR from "../assets/gallery/r.jpeg";
-import imgWA1 from "../assets/gallery/wa1.jpeg";
-import imgWA2 from "../assets/gallery/wa2.jpeg";
-
-export const galleryPhotos = [
-  {
-    id: "g1",
-    src: imgD,
-    captionId: "Proses instalasi pipa gas medis",
-    captionEn: "Medical gas pipeline installation",
-  },
-  {
-    id: "g2",
-    src: imgF,
-    captionId: "Pemasangan manifold gas di fasilitas",
-    captionEn: "Gas manifold installation at facility",
-  },
-  {
-    id: "g3",
-    src: imgG,
-    captionId: "Pengujian tekanan sistem instalasi",
-    captionEn: "Installation system pressure testing",
-  },
-  {
-    id: "g4",
-    src: imgH,
-    captionId: "Instalasi outlet gas medis di ruangan",
-    captionEn: "Medical gas outlet installation",
-  },
-  {
-    id: "g5",
-    src: imgI,
-    captionId: "Proses pengisian tabung oksigen",
-    captionEn: "Oxygen cylinder filling process",
-  },
-  {
-    id: "g6",
-    src: imgK,
-    captionId: "Pengecekan kualitas tabung gas",
-    captionEn: "Gas cylinder quality inspection",
-  },
-  {
-    id: "g7",
-    src: imgL,
-    captionId: "Instalasi sistem vakum medis",
-    captionEn: "Medical vacuum system installation",
-  },
-  {
-    id: "g8",
-    src: imgM,
-    captionId: "Tim teknis di lapangan",
-    captionEn: "Technical team on site",
-  },
-  {
-    id: "g9",
-    src: imgN,
-    captionId: "Pemasangan regulator & flowmeter",
-    captionEn: "Regulator & flowmeter installation",
-  },
-  {
-    id: "g10",
-    src: imgO,
-    captionId: "Pengiriman tabung gas medis",
-    captionEn: "Medical gas cylinder delivery",
-  },
-  {
-    id: "g11",
-    src: imgP,
-    captionId: "Inspeksi berkala fasilitas kesehatan",
-    captionEn: "Periodic healthcare facility inspection",
-  },
-  {
-    id: "g12",
-    src: imgQ,
-    captionId: "Dokumentasi proyek instalasi",
-    captionEn: "Installation project documentation",
-  },
-  {
-    id: "g13",
-    src: imgR,
-    captionId: "Sistem pipa gas selesai terpasang",
-    captionEn: "Completed gas pipeline system",
-  },
-  {
-    id: "g14",
-    src: imgWA1,
-    captionId: "Hasil pengerjaan di lapangan",
-    captionEn: "Field work results",
-  },
-  {
-    id: "g15",
-    src: imgWA2,
-    captionId: "Dokumentasi proyek terbaru",
-    captionEn: "Latest project documentation",
-  },
-];

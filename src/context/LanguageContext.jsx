@@ -17,13 +17,8 @@ export const translations = {
     },
     // Hero
     hero: {
-      headline1: 'Presisi di Setiap Sambungan',
-      headline2: 'Kesalamatan Yang Utama.',
       cta1: 'Jadwalkan Konsultasi',
       cta2: 'Jelajahi Produk',
-      stat1: 'Klien Aktif',
-      stat2: 'Tahun Pengalaman',
-      stat3: 'Dukungan Teknis',
       scrollHint: 'Gulir untuk menjelajahi',
     },
     // About
