@@ -1,44 +1,203 @@
-d:\Malik Mahabbah\
-├── src/
-│   ├── assets/
-│   │   ├── gallery/                         ← Foto dokumentasi proyek (15 foto)
-│   │   ├── products/                        ← Foto produk gas medis (9 foto)
-│   │   ├── Daftar Populasi.xlsx              ← Sumber daftar klien
-│   │   └── logo-removebg-preview.png
-│   ├── components/
-│   │   ├── About.jsx
-│   │   ├── Advantages.jsx
-│   │   ├── Clients.jsx                       ← Section klien
-│   │   ├── Contact.jsx
-│   │   ├── FAQ.jsx
-│   │   ├── FloatingButtons.jsx
-│   │   ├── Footer.jsx
-│   │   ├── Gallery.jsx
-│   │   ├── Hero.jsx
-│   │   ├── Navbar.jsx
-│   │   ├── ParticlesBackground.jsx
-│   │   ├── Process.jsx
-│   │   ├── Products.jsx
-│   │   └── Services.jsx
-│   ├── context/
-│   │   └── LanguageContext.jsx                ← Teks UI bahasa Indonesia dan Inggris
-│   ├── data/
-│   │   ├── clients.js                         ← Data 35 rumah sakit/klinik dan lab/farmasi
-│   │   ├── productCatalog.js                  ← Data katalog produk dan gambar
-│   │   └── siteData.js                        ← Data perusahaan, layanan, galeri, navigasi, dll.
-│   ├── hooks/
-│   │   └── useScrollReveal.js
-│   ├── App.jsx                                ← Susunan section halaman
-│   ├── index.css
-│   └── main.jsx
-├── index.html
-├── package.json
-├── package-lock.json
-├── postcss.config.js
-├── tailwind.config.js
-├── vite.config.js
-└── structure.txt
+STRUKTUR DAN PENJELASAN FILE PROYEK
+PT Malik Mahabbah Manunggal
 
-Section pada halaman:
-Hero → Tentang Kami → Produk → Layanan → Keunggulan → Proses → Galeri
-→ Klien → FAQ → Kontak
+Dokumen ini menjelaskan file sumber dan aset proyek. Folder node_modules/
+berisi paket yang dipasang oleh npm, sedangkan dist/ berisi hasil build.
+Keduanya tidak dirinci karena isinya dibuat otomatis dan bukan kode sumber
+utama yang biasanya diedit.
+
+STRUKTUR FOLDER
+
+.
+|-- .gitignore
+|-- index.html
+|-- package.json
+|-- package-lock.json
+|-- postcss.config.js
+|-- README.md
+|-- structure.txt
+|-- tailwind.config.js
+|-- vite.config.js
+`-- src/
+    |-- App.jsx
+    |-- index.css
+    |-- main.jsx
+    |-- assets/
+    |   |-- Daftar Populasi.xlsx
+    |   |-- data kelengkapan.txt
+    |   |-- heroBG.jpg
+    |   |-- heroBG2.jpg
+    |   |-- logo-removebg-preview.png
+    |   |-- gallery/
+    |   |   |-- d.jpeg
+    |   |   |-- f.jpeg
+    |   |   |-- g.jpeg
+    |   |   |-- h.jpeg
+    |   |   |-- i.jpeg
+    |   |   |-- k.jpeg
+    |   |   |-- l.jpeg
+    |   |   |-- m.jpeg
+    |   |   |-- n.jpeg
+    |   |   |-- o.jpeg
+    |   |   |-- p.jpeg
+    |   |   |-- q.jpeg
+    |   |   |-- r.jpeg
+    |   |   |-- wa1.jpeg
+    |   |   `-- wa2.jpeg
+    |   `-- products/
+    |       |-- Automatic Manifold Oxygen Control Unit.png
+    |       |-- Dual Medical Gas Headwall Panels.png
+    |       |-- Industrial Chiller Assembly with Control Panel.png
+    |       |-- Industrial Yellow Air Compressor Skid.png
+    |       |-- Medical Gas Control Panels_ Closed and Open Views.png
+    |       |-- Medical Gas Manifold Control Panel.png
+    |       |-- Medical Gas Outlet Panel Lineup.png
+    |       |-- Twin Chrome Oxygen Flowmeter Assemblies.png
+    |       `-- Twin Oxygen Regulators with Humidifiers.png
+    |-- components/
+    |   |-- About.jsx
+    |   |-- Advantages.jsx
+    |   |-- Clients.jsx
+    |   |-- Contact.jsx
+    |   |-- FAQ.jsx
+    |   |-- FloatingButtons.jsx
+    |   |-- Footer.jsx
+    |   |-- Gallery.jsx
+    |   |-- Hero.jsx
+    |   |-- Navbar.jsx
+    |   |-- ParticlesBackground.jsx
+    |   |-- Products.jsx
+    |   |-- Services.jsx
+    |   `-- Specialities.jsx
+    |-- context/
+    |   `-- LanguageContext.jsx
+    |-- data/
+    |   |-- clients.js
+    |   |-- productCatalog.js
+    |   `-- siteData.js
+    `-- hooks/
+        `-- useScrollReveal.js
+
+PENJELASAN FILE UTAMA
+
+File di folder utama:
+- index.html
+  Halaman HTML awal yang menyediakan elemen root untuk aplikasi React,
+  metadata situs, ikon, dan pemanggilan src/main.jsx.
+- package.json
+  Informasi proyek, daftar dependensi, serta perintah npm seperti dev,
+  build, preview, dan lint.
+- package-lock.json
+  Mengunci versi dependensi yang dipasang agar instalasi npm konsisten.
+- vite.config.js
+  Konfigurasi Vite dan plugin React, alias impor @, serta pembagian hasil
+  build.
+- tailwind.config.js
+  Pengaturan file yang dipindai Tailwind CSS, warna tema, font, animasi,
+  dan utilitas desain.
+- postcss.config.js
+  Mengaktifkan Tailwind CSS dan Autoprefixer saat CSS diproses.
+- .gitignore
+  Menentukan file atau folder yang tidak perlu disimpan di Git.
+- README.md
+  Panduan ringkas teknologi, cara menjalankan proyek, perintah npm, dan
+  struktur proyek.
+- structure.txt
+  Dokumen struktur proyek dan fungsi file-file yang sedang dibaca ini.
+
+File di dalam src/:
+- src/main.jsx
+  Titik masuk React. Memuat CSS global, membuat root aplikasi, dan
+  membungkus App dengan LanguageProvider agar pilihan bahasa tersedia.
+- src/App.jsx
+  Menyusun bagian-bagian halaman, garis pemisah dekoratif, indikator
+  progres gulir, navigasi, footer, dan tombol mengambang.
+- src/index.css
+  Gaya global, arahan Tailwind, efek dekoratif, perilaku gulir, dan
+  dukungan preferensi pengurangan animasi.
+
+KOMPONEN HALAMAN (src/components/)
+
+- About.jsx
+  Bagian Tentang Kami dengan informasi perusahaan serta tab visi dan misi.
+- Advantages.jsx
+  Menampilkan keunggulan perusahaan.
+- Clients.jsx
+  Menampilkan daftar rumah sakit, klinik, dan laboratorium yang menjadi
+  klien.
+- Contact.jsx
+  Menampilkan informasi kontak dan formulir pertanyaan dengan validasi
+  input. Pengiriman formulir saat ini masih berupa simulasi di sisi browser,
+  belum dikirim ke layanan atau server.
+- FAQ.jsx
+  Menampilkan daftar pertanyaan dan jawaban yang dapat dibuka dan ditutup.
+- FloatingButtons.jsx
+  Menampilkan tombol WhatsApp dan tombol kembali ke bagian atas halaman.
+- Footer.jsx
+  Menampilkan identitas perusahaan, tautan navigasi, media sosial,
+  informasi kontak, dan hak cipta.
+- Gallery.jsx
+  Menampilkan foto dokumentasi proyek dan tampilan foto ukuran penuh
+  (lightbox) dengan navigasi.
+- Hero.jsx
+  Bagian pembuka halaman, termasuk judul utama, ajakan bertindak, dan
+  visual latar.
+- Navbar.jsx
+  Navigasi utama, menu versi mobile, tautan ke bagian halaman, dan tombol
+  untuk mengganti bahasa.
+- ParticlesBackground.jsx
+  Komponen latar animasi partikel berbasis canvas. Komponen ini tersedia
+  sebagai komponen terpisah dan tidak dipasang oleh src/App.jsx saat ini.
+- Products.jsx
+  Menampilkan kartu katalog produk; kartu dapat dibalik untuk melihat
+  informasi penggunaan.
+- Services.jsx
+  Menampilkan daftar layanan perusahaan.
+- Specialities.jsx
+  Menampilkan pengenalan spesialisasi IGVM dan tautan menuju bagian produk.
+
+DATA, BAHASA, DAN UTILITAS
+
+- src/data/clients.js
+  Daftar klien beserta lokasi, tahun, dan kategori yang dipakai oleh
+  Clients.jsx.
+- src/data/productCatalog.js
+  Data nama, kategori, deskripsi, kegunaan, dan gambar produk dalam bahasa
+  Indonesia dan Inggris; dipakai oleh Products.jsx.
+- src/data/siteData.js
+  Data umum situs seperti informasi perusahaan, konten Tentang Kami,
+  layanan, keunggulan, FAQ, foto galeri, dan tautan navigasi.
+- src/context/LanguageContext.jsx
+  Teks terjemahan Bahasa Indonesia dan Inggris, penyedia konteks bahasa,
+  serta fungsi untuk membaca dan mengganti bahasa.
+- src/hooks/useScrollReveal.js
+  Hook untuk menjalankan callback sekali ketika elemen masuk ke area layar.
+  Hook ini merupakan utilitas terpisah dan saat ini tidak digunakan oleh
+  komponen halaman.
+
+ASET (src/assets/)
+
+- Daftar Populasi.xlsx
+  File spreadsheet sumber daftar populasi.
+- data kelengkapan.txt
+  Catatan kebutuhan aset dan konten proyek.
+- heroBG.jpg dan heroBG2.jpg
+  Gambar latar yang tersedia untuk bagian hero; Hero.jsx memakai heroBG2.jpg.
+- logo-removebg-preview.png
+  Logo yang diimpor oleh Navbar.jsx.
+- gallery/
+  Kumpulan 15 foto dokumentasi proyek. Daftar nama filenya tercantum pada
+  struktur folder di atas; foto yang ditampilkan ditentukan di
+  src/data/siteData.js.
+- products/
+  Sembilan gambar produk. Setiap gambar dihubungkan ke data produk melalui
+  src/data/productCatalog.js.
+
+URUTAN BAGIAN HALAMAN
+
+Navbar -> Hero -> Tentang Kami -> Produk -> Layanan -> Keunggulan ->
+Spesialisasi -> Galeri -> Klien -> FAQ -> Kontak -> Footer.
+
+Catatan: tidak ada file Process.jsx di proyek saat ini, dan App.jsx tidak
+menyusun bagian "Proses". Jika ingin menambahkan bagian tersebut, perlu
+dibuat dan dipasang sebagai komponen tersendiri.

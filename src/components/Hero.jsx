@@ -4,6 +4,7 @@
   import { useLang } from '../context/LanguageContext';
   import  bgHero  from '../assets/heroBG.jpg';
   import bgHero2 from '../assets/heroBG2.jpg';
+  import bgHero3 from '../assets/m3.png';
   
 
   function MedicalGasVisual() {
@@ -66,8 +67,8 @@
 
     return (
       <section id="hero" className="relative flex min-h-screen items-center overflow-hidden" aria-labelledby="hero-heading">
-        <div className="absolute inset-0 -z-10 bg-cover bg-center" style={{ backgroundImage: `url(${bgHero2})` }} />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/40 via-black/20 to-black/80" />
+        <div className="absolute inset-0 -z-10 bg-cover bg-center" style={{ backgroundImage: `url(${bgHero3})` }} />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/35 via-black/20 to-black/50 md:bg-gradient-to-r md:from-black/50 md:via-black/25 md:to-black/10" />
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
           <div className="blob-1 absolute -right-1/4 -top-1/4 h-[60vw] w-[60vw] max-w-2xl opacity-20" style={{ background: 'radial-gradient(circle, #38BDF8, transparent 70%)' }} />
           <div className="blob-2 absolute -bottom-1/4 -left-1/4 h-[55vw] w-[55vw] max-w-xl opacity-15" style={{ background: 'radial-gradient(circle, #0A5BD3, transparent 70%)' }} />

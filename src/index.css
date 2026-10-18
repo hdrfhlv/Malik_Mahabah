@@ -72,16 +72,13 @@
       #F4F8FF;
   }
 
-  /* Scrollbar */
-  ::-webkit-scrollbar {
-    width: 6px;
+  html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
-  ::-webkit-scrollbar-track {
-    background: #F4F8FF;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #0A5BD3;
-    border-radius: 99px;
+
+  html::-webkit-scrollbar {
+    display: none;
   }
 }
 
