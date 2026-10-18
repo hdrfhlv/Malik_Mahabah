@@ -24,8 +24,8 @@ export const translations = {
     // About
     about: {
       badge: 'Tentang Kami',
-      heading1: 'Mitra Handal bagi',
-      headingAccent: 'Fasilitas Kesehatan',
+      heading1: 'Latar Belakang',
+      headingAccent: 'Malik Mahabah Manunggal',
       tab1: 'Visi',
       tab2: 'Misi',
       visionLabel: 'Visi Kami',
@@ -132,7 +132,9 @@ export const translations = {
     },
   },
 
-  // ── ENGLISH ────────────────────────────────────────────────────
+  //_________________________________________________________________//
+  // ── ENGLISH ────────────────────────────────────────────────────//
+  //________________________________________________________________//
   en: {
     nav: {
       home: 'Home',
@@ -155,8 +157,8 @@ export const translations = {
     },
     about: {
       badge: 'About Us',
-      heading1: 'A Trusted Partner to',
-      headingAccent: 'Healthcare Facilities',
+      heading1: 'About',
+      headingAccent: 'Malik Mahabah Manunggal',
       tab1: 'Vision',
       tab2: 'Mission',
       visionLabel: 'Our Vision',
