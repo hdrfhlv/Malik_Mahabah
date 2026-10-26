@@ -12,8 +12,8 @@ export const company = {
     en: "Trusted Medical Gas Instalation for Indonesia's Healthcare Facilities",
   },
   phone: "0812-7371-2104",
-  phoneWA: "628127371210",
-  email: "malikmahabahmanunggal@gmail.com",
+  phoneWA: "6281273712104",
+  email: "malikmahabahofficial@gmail.com",
   address: "18 Office Park Building, 21th Floor Unit C",
   city: "Jakarta Selatan, DKI JAKARTA 12520",
   mapEmbedUrl:
@@ -21,7 +21,7 @@ export const company = {
   established: "2026",
   website: "https://malikgasmedis.com",
   socialMedia: {
-    instagram: "https://instagram.com/[HANDLE]",
+    instagram: "https://instagram.com/malikmahabah/",
     linkedin: "https://linkedin.com/company/[HANDLE]",
     facebook: "https://facebook.com/[HANDLE]",
   },

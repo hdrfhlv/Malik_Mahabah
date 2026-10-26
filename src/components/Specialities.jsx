@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import manifoldPhoto from '../assets/gallery/kila.jpg';
-import technicianPhoto from '../assets/gallery/oki.jpg';
-import bedheadPhoto from '../assets/gallery/walled bed.jpg';
+import manifoldPhoto from '../assets/gallery/WhatsApp Image 2026-10-21 at 9.30.35 PM.jpeg';
+import technicianPhoto from '../assets/gallery/WhatsApp Image 2026-10-21 at 9.30.36 PM (1).jpeg';
+import bedheadPhoto from '../assets/gallery/WhatsApp Image 2026-10-21 at 9.30.37 PM (1).jpeg';
 
 const projectShowcase = [
   {
