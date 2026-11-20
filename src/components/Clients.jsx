@@ -1,55 +1,75 @@
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { MapPin } from 'lucide-react';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import 'leaflet.markercluster';
+import 'leaflet.markercluster/dist/MarkerCluster.css';
+import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import { clients } from '../data/clients';
 import { useLang } from '../context/LanguageContext';
-import indonesiaMap from '../assets/MapChart_Map.png';
-
-const MAP_WIDTH = 2000;
-const MAP_HEIGHT = 1000;
 
 const locations = [
-  { match: /teluk wondama/i, city: 'Teluk Wondama', point: [1640, 420] },
-  { match: /pontianak|kalimantan barat/i, city: 'Pontianak', point: [700, 330], approximate: true },
-  { match: /bekasi/i, city: 'Bekasi', point: [520, 625] },
-  { match: /cikarang/i, city: 'Cikarang', point: [540, 630] },
-  { match: /depok/i, city: 'Depok', point: [515, 642] },
-  { match: /ciputat/i, city: 'Ciputat', point: [505, 630] },
-  { match: /tangerang|bsd/i, city: 'Tangerang', point: [490, 625] },
-  { match: /cakung/i, city: 'Cakung', point: [525, 620] },
-  { match: /semanggi|kebon jeruk|pluit|jakarta/i, city: 'Jakarta', point: [510, 620] },
-  { match: /bandung/i, city: 'Bandung', point: [560, 655] },
-  { match: /ciawi/i, city: 'Ciawi', point: [530, 660] },
-  { match: /bogor/i, city: 'Bogor', point: [520, 650] },
-  { match: /samarinda|kalimantan timur/i, city: 'Samarinda', point: [1000, 350], approximate: true },
-  { match: /denpasar|nusa dua/i, city: 'Denpasar', point: [920, 700] },
-  { match: /jember/i, city: 'Jember', point: [840, 690] },
-  { match: /mojokerto/i, city: 'Mojokerto', point: [735, 665] },
-  { match: /jawa timur/i, city: 'Surabaya', point: [760, 660], approximate: true },
-  { match: /porsea|toba/i, city: 'Porsea', point: [225, 295] },
-  { match: /paniai|papua tengah/i, city: 'Paniai', point: [1780, 545] },
-  { match: /padang|sumatra barat/i, city: 'Padang', point: [245, 390], approximate: true },
-  { match: /purwakarta/i, city: 'Purwakarta', point: [535, 640] },
-  { match: /bangka|belitung/i, city: 'Pangkalpinang', point: [595, 445], approximate: true },
-  { match: /lubuklinggau/i, city: 'Lubuklinggau', point: [375, 480] },
-  { match: /papua barat/i, city: 'Manokwari', point: [1680, 425], approximate: true },
-  { match: /banten/i, city: 'Serang', point: [480, 620], approximate: true },
-  { match: /sumatra utara/i, city: 'Medan', point: [180, 235], approximate: true },
-  { match: /sumatra selatan/i, city: 'Palembang', point: [430, 520], approximate: true },
-  { match: /jawa barat/i, city: 'Bandung', point: [560, 655], approximate: true },
+  { match: /teluk wondama/i, city: 'Teluk Wondama', coordinates: [-2.81, 134.51] },
+  { match: /pontianak|kalimantan barat/i, city: 'Pontianak', coordinates: [-0.03, 109.34], approximate: true },
+  { match: /bekasi/i, city: 'Bekasi', coordinates: [-6.24, 106.98] },
+  { match: /cikarang/i, city: 'Cikarang', coordinates: [-6.31, 107.17] },
+  { match: /depok/i, city: 'Depok', coordinates: [-6.40, 106.79] },
+  { match: /ciputat/i, city: 'Ciputat', coordinates: [-6.29, 106.72] },
+  { match: /tangerang|bsd/i, city: 'Tangerang', coordinates: [-6.18, 106.63] },
+  { match: /cakung/i, city: 'Cakung', coordinates: [-6.18, 106.94] },
+  { match: /semanggi|kebon jeruk|pluit|jakarta/i, city: 'Jakarta', coordinates: [-6.21, 106.85] },
+  { match: /bandung/i, city: 'Bandung', coordinates: [-6.92, 107.62] },
+  { match: /ciawi/i, city: 'Ciawi', coordinates: [-6.66, 106.86] },
+  { match: /bogor/i, city: 'Bogor', coordinates: [-6.60, 106.81] },
+  { match: /samarinda|kalimantan timur/i, city: 'Samarinda', coordinates: [-0.50, 117.15], approximate: true },
+  { match: /denpasar|nusa dua/i, city: 'Denpasar', coordinates: [-8.65, 115.22] },
+  { match: /jember/i, city: 'Jember', coordinates: [-8.17, 113.70] },
+  { match: /mojokerto/i, city: 'Mojokerto', coordinates: [-7.47, 112.43] },
+  { match: /jawa timur/i, city: 'Surabaya', coordinates: [-7.26, 112.75], approximate: true },
+  { match: /porsea|toba/i, city: 'Porsea', coordinates: [2.42, 99.12] },
+  { match: /paniai|papua tengah/i, city: 'Paniai', coordinates: [-3.92, 136.37] },
+  { match: /padang|sumatra barat/i, city: 'Padang', coordinates: [-0.95, 100.42], approximate: true },
+  { match: /purwakarta/i, city: 'Purwakarta', coordinates: [-6.56, 107.44] },
+  { match: /bangka|belitung/i, city: 'Pangkalpinang', coordinates: [-2.13, 106.11], approximate: true },
+  { match: /lubuklinggau/i, city: 'Lubuklinggau', coordinates: [-3.30, 102.86] },
+  { match: /papua barat/i, city: 'Manokwari', coordinates: [-0.86, 134.06], approximate: true },
+  { match: /banten/i, city: 'Serang', coordinates: [-6.12, 106.15], approximate: true },
+  { match: /sumatra utara/i, city: 'Medan', coordinates: [3.60, 98.67], approximate: true },
+  { match: /sumatra selatan/i, city: 'Palembang', coordinates: [-2.98, 104.78], approximate: true },
+  { match: /jawa barat/i, city: 'Bandung', coordinates: [-6.92, 107.62], approximate: true },
 ];
 
 function getLocation(client) {
   const source = `${client.name} ${client.location}`;
   return locations.find(({ match }) => match.test(source)) ?? {
     city: client.location,
-    point: [510, 620],
+    coordinates: [-6.21, 106.85],
     approximate: true,
   };
 }
 
-function toMapPoint([x, y]) {
-  return { x, y };
+function createMarkerTooltip(marker, lang) {
+  const container = document.createElement('div');
+  const heading = document.createElement('strong');
+  heading.textContent = marker.city;
+  container.appendChild(heading);
+
+  const list = document.createElement('ul');
+  marker.clients.forEach((client) => {
+    const item = document.createElement('li');
+    item.textContent = client.name;
+    list.appendChild(item);
+  });
+  container.appendChild(list);
+
+  if (marker.approximate) {
+    const note = document.createElement('small');
+    note.textContent = lang === 'id' ? 'Lokasi perkiraan' : 'Approximate location';
+    container.appendChild(note);
+  }
+
+  return container;
 }
 
 function buildCityMarkers() {
@@ -59,7 +79,7 @@ function buildCityMarkers() {
     const location = getLocation(client);
     const group = groups.get(location.city) ?? {
       city: location.city,
-      point: toMapPoint(location.point),
+      coordinates: location.coordinates,
       clients: [],
       approximate: Boolean(location.approximate),
     };
@@ -72,86 +92,82 @@ function buildCityMarkers() {
 }
 
 function IndonesiaMap({ markers, selectedCity, onSelect, lang }) {
+  const mapElementRef = useRef(null);
+  const mapRef = useRef(null);
+
+  useEffect(() => {
+    if (!mapElementRef.current) return undefined;
+
+    const map = L.map(mapElementRef.current, {
+      scrollWheelZoom: false,
+      minZoom: 3,
+      maxZoom: 18,
+    });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
+
+    map.fitBounds([[-11, 94], [6, 142]], { padding: [12, 12] });
+    mapRef.current = map;
+
+    return () => {
+      map.remove();
+      mapRef.current = null;
+    };
+  }, []);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return undefined;
+
+    const clusterLayer = L.markerClusterGroup({
+      showCoverageOnHover: false,
+      maxClusterRadius: 42,
+      iconCreateFunction: (cluster) => L.divIcon({
+          className: 'client-map-cluster-icon',
+          html: `<span>${cluster.getChildCount()}</span>`,
+          iconSize: L.point(42, 42),
+      }),
+    });
+
+    markers.forEach((marker) => {
+      const selected = marker.city === selectedCity;
+      const count = marker.clients.length;
+      const mapMarker = L.marker(marker.coordinates, {
+          title: `${marker.city}, ${count} ${lang === 'id' ? 'klien' : 'clients'}`,
+          icon: L.divIcon({
+            className: 'client-map-pin-icon',
+            html: `<span class="client-map-pin${selected ? ' client-map-pin-selected' : ''}">${count > 1 ? count : ''}</span>`,
+            iconSize: L.point(34, 34),
+            iconAnchor: L.point(17, 17),
+          }),
+      });
+
+      mapMarker.bindTooltip(createMarkerTooltip(marker, lang), {
+          className: 'client-map-tooltip',
+          direction: 'top',
+          offset: L.point(0, -14),
+          opacity: 1,
+      });
+      mapMarker.on('click', () => onSelect(marker.city));
+      clusterLayer.addLayer(mapMarker);
+    });
+
+    map.addLayer(clusterLayer);
+    return () => {
+      map.removeLayer(clusterLayer);
+    };
+  }, [lang, markers, onSelect, selectedCity]);
+
   return (
-    <div className="relative aspect-[20/9] w-full overflow-hidden rounded-2xl bg-[#f5f8f8]">
-      <img
-        src={indonesiaMap}
-        alt={lang === 'id' ? 'Peta Indonesia dengan kabupaten dan kota' : 'Map of Indonesia with regencies and cities'}
-        className="absolute inset-0 h-full w-full object-contain"
-        draggable="false"
-      />
-      <svg
-        viewBox={`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`}
-        className="absolute inset-0 h-full w-full"
-        role="group"
-        aria-label={lang === 'id' ? 'Lokasi klien pada peta' : 'Client locations on the map'}
-      >
-        <defs>
-          <filter id="client-marker-shadow" x="-100%" y="-100%" width="300%" height="300%">
-            <feDropShadow dx="0" dy="3" stdDeviation="4" floodColor="#7f1d1d" floodOpacity="0.3" />
-          </filter>
-        </defs>
-        {markers.map((marker) => {
-          const selected = marker.city === selectedCity;
-          const radius = marker.clients.length > 1 ? 11 : 8;
-          return (
-            <g
-              key={marker.city}
-              role="button"
-              tabIndex={0}
-              aria-label={`${marker.city}, ${marker.clients.length} ${lang === 'id' ? 'klien' : 'clients'}`}
-              aria-pressed={selected}
-              onClick={() => onSelect(marker.city)}
-              onKeyDown={(event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                  event.preventDefault();
-                  onSelect(marker.city);
-                }
-              }}
-              className="cursor-pointer outline-none"
-              filter="url(#client-marker-shadow)"
-            >
-              {selected && (
-                <circle
-                  cx={marker.point.x}
-                  cy={marker.point.y}
-                  r="23"
-                  fill="#dc2626"
-                  fillOpacity="0.14"
-                  stroke="#dc2626"
-                  strokeOpacity="0.28"
-                  strokeWidth="2"
-                />
-              )}
-              <circle
-                cx={marker.point.x}
-                cy={marker.point.y}
-                r={radius}
-                fill="#c62828"
-                stroke="#ffffff"
-                strokeWidth="3"
-              />
-              {marker.clients.length > 1 && (
-                <text
-                  x={marker.point.x}
-                  y={marker.point.y + 4}
-                  textAnchor="middle"
-                  fontSize="10"
-                  fontWeight="700"
-                  fill="#ffffff"
-                  pointerEvents="none"
-                >
-                  {marker.clients.length}
-                </text>
-              )}
-              <title>
-                {`${marker.city}${marker.approximate ? ` (${lang === 'id' ? 'perkiraan' : 'approximate'})` : ''}: ${marker.clients.map((client) => client.name).join(', ')}`}
-              </title>
-            </g>
-          );
-        })}
-      </svg>
-    </div>
+    <div
+      ref={mapElementRef}
+      role="application"
+      aria-label={lang === 'id' ? 'Peta OpenStreetMap lokasi klien' : 'OpenStreetMap of client locations'}
+      className="relative z-0 isolate h-[360px] w-full overflow-hidden rounded-2xl border border-sky-100 shadow-inner sm:h-[420px]"
+    />
   );
 }
 
@@ -189,7 +205,7 @@ export default function Clients() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white p-4 shadow-xl shadow-slate-900/5 sm:p-6 lg:p-8"
+          className="overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white p-4 shadow-2xl shadow-slate-900/10 sm:p-6 lg:p-8"
         >
           <div className="grid items-center gap-7 lg:grid-cols-[1.6fr_0.8fr]">
             <div>
@@ -208,7 +224,10 @@ export default function Clients() {
                   </span>
                   {lang === 'id' ? 'lebih dari satu klien' : 'multiple clients'}
                 </span>
-                <span>{lang === 'id' ? 'Titik bertumpuk dikelompokkan per kota' : 'Overlapping locations grouped by city'}</span>
+                <span className="flex items-center gap-2">
+                  <span className="h-3 w-3 rounded-full bg-primary ring-2 ring-primary/20" aria-hidden="true" />
+                  {lang === 'id' ? 'Klik kelompok titik untuk memperbesar peta' : 'Click marker clusters to zoom in'}
+                </span>
               </div>
             </div>
 
@@ -245,8 +264,8 @@ export default function Clients() {
               </motion.div>
               <p className="mt-6 border-t border-slate-200 pt-4 text-xs leading-relaxed text-slate-500">
                 {lang === 'id'
-                  ? 'Pilih titik merah di peta untuk melihat klien di kota tersebut. Kota ditentukan dari data proyek yang tersedia.'
-                  : 'Select a red dot on the map to see clients in that city. Locations are based on available project data.'}
+                  ? 'Pilih titik untuk melihat klien di kota tersebut. Lokasi peta merupakan perkiraan tingkat kota, bukan alamat persis rumah sakit.'
+                  : 'Select a marker to see clients in that city. Map positions are approximate city locations, not exact hospital addresses.'}
               </p>
             </div>
           </div>

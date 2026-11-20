@@ -99,11 +99,18 @@ export default function Contact() {
               </a>
             ))}
 
-            {/* Map placeholder */}
-            <div className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm h-48 bg-gray-100 flex items-center justify-center">
-              <div className="text-center text-gray-400 px-4">
-                <MapPin size={32} className="mx-auto mb-2 opacity-40" aria-hidden="true" />
-                <p className="font-body text-xs">{ct.mapPlaceholder}</p>
+            <div className="relative h-56 overflow-hidden rounded-2xl border border-slate-200 shadow-lg shadow-slate-900/10">
+              <iframe
+                src={company.mapEmbedUrl}
+                title={lang === 'id' ? 'Peta lokasi kantor Malik Gas Medis' : 'Map to Malik Gas Medis office'}
+                className="h-full w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+              <div className="pointer-events-none absolute bottom-3 left-3 flex items-center gap-2 rounded-xl bg-white/95 px-3 py-2 shadow-md backdrop-blur-sm">
+                <MapPin size={16} className="text-primary" aria-hidden="true" />
+                <span className="font-heading text-xs font-semibold text-slate-700">{company.address}</span>
               </div>
             </div>
           </motion.div>
